@@ -104,4 +104,13 @@ public class User implements java.io.Serializable{
 		transactions = DBUtil.getTransactions(startDate, endDate, accounts, -1);
 		return transactions; 
 	}
+	
+	public Account[] getAdditionalAccounts(){
+		try {
+			return DBUtil.getAccounts(username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
